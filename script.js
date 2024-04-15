@@ -1,21 +1,53 @@
+const containerDiv = document.querySelector(".container");
+const button = document.querySelector("button");
+
 const addStyleOnHover = (event) => {
     event.target.classList.add("colored");
-}
-const containerDiv = document.querySelector(".container");
+};
 
-for (let i = 0; i < 16; i++){
-    let lineDiv = document.createElement("div");
+const deleteSketchArea = () => {
+    const childs = Array.from(containerDiv.childNodes);
+    childs.forEach((child) => {child.remove()});
+};
 
-    lineDiv.classList.add("line");
-    
-    for (let j = 0; j < 16; j++) {
-        let gridCell = document.createElement("div");
-        gridCell.classList.add("cell");
+const userPrompt = () => {
+    let number = parseInt(prompt('How big should your sketch area grid be?'));
 
-        gridCell.addEventListener("mouseenter", addStyleOnHover);
-        
-        lineDiv.appendChild(gridCell);
+    if (number < 2 || !number) {
+        number = 2;
     }
+
+    return number;
+};
+
+const buildSketchArea = (number) => {
+    if (!number || number < 2) {
+        number = 16;
+    }
+
+    for (let i = 0; i < number; i++){
+        let lineDiv = document.createElement("div");
     
-    containerDiv.appendChild(lineDiv);
-}
+        lineDiv.classList.add("line");
+        
+        for (let j = 0; j < number; j++) {
+            let gridCell = document.createElement("div");
+            gridCell.classList.add("cell");
+    
+            gridCell.addEventListener("mouseenter", addStyleOnHover);
+            
+            lineDiv.appendChild(gridCell);
+        }
+        
+        containerDiv.appendChild(lineDiv);
+    }
+};
+
+
+button.addEventListener("click", () => {
+    deleteSketchArea();
+    let number = userPrompt();
+    buildSketchArea(number);
+});
+
+buildSketchArea();
