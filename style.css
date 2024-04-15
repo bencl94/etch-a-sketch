@@ -4,26 +4,32 @@ html {
 
 body {
     margin: 0;
+    background-color: antiquewhite;
 }
 
 .container {
     display: flex;
-    height: 100vh;
+    width: 100vh;
+    margin: 0 auto;
+    background-color: white;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 4px;
+    gap: 2px;
 }
 
 .line {
-    background-color: lightgreen;
     height: 40px;
     display: flex;
     justify-content: space-evenly;
     flex: 1 1 48px;
-    gap: 4px;
+    gap: 2px;
 }
 
 .cell {
-    background-color: lightcoral;
     flex: 1 1 48px;
+    border: 1px solid lightgray;
+}
+
+.colored {
+    background-color: black;
 }
