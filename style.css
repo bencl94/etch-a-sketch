@@ -1,4 +1,29 @@
-html 
-{
+html {
     box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 4px;
+}
+
+.line {
+    background-color: lightgreen;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1 1 48px;
+    gap: 4px;
+}
+
+.cell {
+    background-color: lightcoral;
+    flex: 1 1 48px;
 }
