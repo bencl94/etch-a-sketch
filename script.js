@@ -17,6 +17,10 @@ const userPrompt = () => {
         number = 2;
     }
 
+    if (number > 100) {
+        number = 100;
+    }
+    
     return number;
 };
 
